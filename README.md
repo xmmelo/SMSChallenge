@@ -1,3 +1,3 @@
 # SMSChallenge
 
-Siemens Coding Challenge
+Coding Challenge
