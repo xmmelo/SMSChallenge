@@ -1,37 +1,35 @@
 ﻿{
-  "Italy": {
-    "TaxRate": [
-      {
-        "rate": 15,
-        "value": 500,
-        "order": 1
-      },
-      {
-        "rate": 20,
-        "value": 500,
-        "order": 2
-      },
-      {
-        "rate": 25,
-        "value": 500,
-        "order": 3
-      },
-      {
-        "rate": 30,
-        "value": 500,
-        "order": 4
-      },
-      {
-        "rate": 35,
-        "value": 500,
-        "order": 5
-      },
-      {
-        "rate": 40,
-        "value": 500,
-        "order": 6
-      }
-    ],
-    "Pension": 1.7
-  }
+  "TaxRates": [
+    {
+      "rate": 15,
+      "value": 500,
+      "order": 1
+    },
+    {
+      "rate": 20,
+      "value": 500,
+      "order": 2
+    },
+    {
+      "rate": 25,
+      "value": 500,
+      "order": 3
+    },
+    {
+      "rate": 30,
+      "value": 500,
+      "order": 4
+    },
+    {
+      "rate": 35,
+      "value": 500,
+      "order": 5
+    },
+    {
+      "rate": 40,
+      "value": 500,
+      "order": 6
+    }
+  ],
+  "Pension": 1.7
 }

@@ -10,7 +10,7 @@ namespace SMSChallenge.Managers
 {
     public interface IConfigManager
     {
-        void LoadConfig();
+        Dictionary<string, Delegate> LoadConfig();
         SalaryConfig GetCountryConfig(string countryName);
     }
 
@@ -18,14 +18,15 @@ namespace SMSChallenge.Managers
     {
 
         private static string DIR_CONFIG_NAME = "//Config";
-        public Dictionary<string, SalaryConfig> _countrySalaryConfig { get; set; }
+        public Dictionary<string, SalaryConfig> _countrySalaryConfig = new Dictionary<string, SalaryConfig>();
+        public ISalaryCalculatorManager _calculatorManager { get; set; }
 
-        public ConfigManager()
-        {
-            LoadConfig(_countrySalaryConfig);
+        public ConfigManager(ISalaryCalculatorManager calculatorManager)
+        {   
+            _calculatorManager = calculatorManager ?? throw new ArgumentNullException(nameof(calculatorManager));
         }
 
-        public void LoadConfig()
+        public Dictionary<string, Delegate> LoadConfig()
         {
             //Get config folder
             var dirName = Directory.GetCurrentDirectory();
@@ -35,11 +36,14 @@ namespace SMSChallenge.Managers
             foreach (var file in configFiles)
             {
                 var fileName = Path.GetFileNameWithoutExtension(file);
-                GetConfig(fileName, file);
+                _countrySalaryConfig.TryAdd(fileName, GetConfig(fileName, file));
             }
+
+            return _calculatorManager.GetCalculator();
+
         }
 
-        public void LoadConfig(Dictionary<string, SalaryConfig> countrySalaryConfig)
+        public void LoadConfig(Dictionary<string, Delegate> _countryCalculator)
         {
             //Get config folder
             var dirName = Directory.GetCurrentDirectory();
@@ -60,16 +64,21 @@ namespace SMSChallenge.Managers
 
         private SalaryConfig GetConfig(string fileName, string filePath)
         {
+
             switch (fileName)
             {
-                case "Portugal":
+                case nameof(Country.Portugal):
+                    _calculatorManager.LoadOperation(fileName, SalaryCalculator.portugueseSalaryCalculator);
                     return Util.ParseToConfig<SalaryPortugalConfig>(filePath);
-                case "France":
-                    return Util.ParseToConfig<SalaryFranceConfig>(filePath);
-                case "Germany":
-                    return Util.ParseToConfig<SalaryGermanyConfig>(filePath);
-                case "Italy":
+                case nameof(Country.Italy):
+                    _calculatorManager.LoadOperation(fileName, SalaryCalculator.italySalaryCalculator);
                     return Util.ParseToConfig<SalaryItalyConfig>(filePath);
+                case nameof(Country.Germany):
+                    _calculatorManager.LoadOperation(fileName, SalaryCalculator.germanySalaryCalculator);
+                    return Util.ParseToConfig<SalaryGermanyConfig>(filePath);
+                case nameof(Country.France):
+                    _calculatorManager.LoadOperation(fileName, SalaryCalculator.franceSalaryCalculator);
+                    return Util.ParseToConfig<SalaryFranceConfig>(filePath);
                 default:
                     throw new Exception("Country config not implemented");
             }
