@@ -28,6 +28,7 @@ namespace SMSChallenge
         {
             services.AddSingleton<ISalaryManager, SalaryManager>();
             services.AddSingleton<IConfigManager, ConfigManager>();
+            services.AddSingleton<ISalaryCalculatorManager, SalaryCalculatorManager>();
 
             services.AddSwaggerGen();
             services.AddControllers();

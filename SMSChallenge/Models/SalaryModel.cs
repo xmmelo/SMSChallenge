@@ -21,10 +21,14 @@ namespace SMSChallenge.Models
         public DateTime Birthday { get; set; }
         public int HourlyRate { get; set; }
         public int HoursWorked { get; set; }
+    }
 
+    public class EnrichedRequest : SalaryRequest
+    {
         public int Age { get; set; }
         public int Amount { get; set; }
     }
+
 
     public class SalaryConfig
     {
@@ -33,13 +37,12 @@ namespace SMSChallenge.Models
     public class SalaryTaxRates : SalaryConfig
     {
         public List<TaxRate> TaxRates { get; set; }
-        public double BasicPension { get; set; }
+        public double Pension { get; set; }
     }
-
+    
     public class SalaryItalyConfig : SalaryTaxRates
     {
     }
-
     public class SalaryGermanyConfig : SalaryTaxRates
     {
     }
@@ -52,6 +55,13 @@ namespace SMSChallenge.Models
         public List<TaxBracket> TaxBrackets { get; set; }
         public List<UniversalSocialCharge> UniversalSocialCharges { get; set; }
     }
+
+
+
+
+
+
+
     public class TaxBracket
     {
         public int Rate { get; set; }

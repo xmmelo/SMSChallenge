@@ -1,33 +1,33 @@
 ﻿{
-  "France": {
-    "TaxRate": [
-      {
-        "rate": 25,
-        "value": 600,
-        "order": 1
-      },
-      {
-        "rate": 30,
-        "value": 600,
-        "order": 2
-      },
-      {
-        "rate": 40,
-        "order": 3
-      }
 
-    ],
-    "UniversalSocialCharges": [
-      {
-        "rate": 7,
-        "value": 500,
-        "order": 1
-      },
-      {
-        "rate": 8,
-        "order": 2
-      }
-    ],
-    "Pension": 4
-  }
+  "TaxRate": [
+    {
+      "rate": 25,
+      "value": 600,
+      "order": 1
+    },
+    {
+      "rate": 30,
+      "value": 600,
+      "order": 2
+    },
+    {
+      "rate": 40,
+      "order": 3
+    }
+
+  ],
+  "UniversalSocialCharges": [
+    {
+      "rate": 7,
+      "value": 500,
+      "order": 1
+    },
+    {
+      "rate": 8,
+      "order": 2
+    }
+  ],
+  "Pension": 4
+
 }
