@@ -1,0 +1,38 @@
+﻿{
+  "TaxBrackets": [
+    {
+      "rate": 20,
+      "minvalue": 0,
+      "maxvalue": 600
+    },
+    {
+      "rate": 25,
+      "minvalue": 600,
+      "maxvalue": 1100
+    },
+    {
+      "rate": 30,
+      "minvalue": 1100,
+      "maxvalue": 1600
+    },
+    {
+      "rate": 34,
+      "minvalue": 1600,
+      "maxvalue": 2000
+    },
+    {
+      "rate": 38,
+      "minvalue": 2000,
+      "maxvalue": 2400
+    },
+    {
+      "rate": 42,
+      "minvalue": 2400
+    }
+  ],
+  "UniversalSocialCharges": [
+    {
+      "rate": 12.73
+    }
+  ]
+}

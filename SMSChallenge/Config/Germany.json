@@ -1,0 +1,16 @@
+﻿{
+  "Germany": {
+    "TaxRate": [
+      {
+        "rate": 25,
+        "value": 400,
+        "order": 1
+      },
+      {
+        "rate": 32,
+        "order": 2
+      }
+    ],
+    "Pension": 2
+  }
+}
