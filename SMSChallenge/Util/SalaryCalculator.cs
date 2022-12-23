@@ -83,7 +83,7 @@ public class SalaryCalculator
             NetAmount = _liquid.ToString(),
             GrossAmount = request.Amount.ToString(),
             IncomeTax = totalTax.ToString(),
-            UniversalSocialCharge = 0.ToString(),
+            UniversalSocialCharge = "",
             Pension = pension.ToString(),
             Location = request.Location
 
@@ -124,7 +124,7 @@ public class SalaryCalculator
             NetAmount = _liquid.ToString(),
             GrossAmount = request.Amount.ToString(),
             IncomeTax = totalTax.ToString(),
-            UniversalSocialCharge = 0.ToString(),
+            UniversalSocialCharge = "",
             Location = request.Location,
             Pension = pension.ToString()
 
