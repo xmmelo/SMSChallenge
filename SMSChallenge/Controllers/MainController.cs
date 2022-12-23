@@ -15,21 +15,11 @@ namespace SMSChallenge.Controllers
     {
         private ILogger<MainController> _logger;
         private ISalaryManager _salaryManager;
-        private IConfigManager _configManager;
 
-        public MainController(ILogger<MainController> logger, ISalaryManager salaryManager, IConfigManager configManager)
+        public MainController(ILogger<MainController> logger, ISalaryManager salaryManager)
         {
             _logger = logger;
             _salaryManager = salaryManager ?? throw new ArgumentNullException(nameof(salaryManager));
-            _configManager = configManager ?? throw new ArgumentNullException(nameof(configManager));
-        }
-
-
-        [HttpGet]
-        [Route("Get")]
-        public IActionResult Get()
-        {
-            return Ok("Hello World");
         }
 
         [HttpGet]
@@ -44,14 +34,6 @@ namespace SMSChallenge.Controllers
         public IActionResult GetGrossSalary(SalaryRequest request)
         {
             return Ok(_salaryManager.GetSalaryDescription(request));
-        }
-
-        [HttpGet]
-        [Route("testConfig")]
-        public IActionResult Config()
-        {
-            _configManager.LoadConfig();
-            return Ok();
         }
 
     }
